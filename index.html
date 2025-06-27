@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quizeverything</title>
+    <title>identityinsight</title>
     <style>
         .index_container {
             font-family: 'Arial', sans-serif;
@@ -65,24 +65,24 @@
             crossorigin="anonymous"></script>
     <script src="./testname/js/google_adv.js"></script>
 
-    <link rel="icon" type="image/png" href="./testname/img/title.png" sizes="96x96" />
+    <link rel="icon" type="image/png" href="./testname/img/icon/favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="./testname/img/icon/favicon.svg" />
     <link rel="shortcut icon" href="./testname/img/icon/favicon.ico" />
     <link rel="apple-touch-icon" sizes="180x180" href="./testname/img/icon/apple-touch-icon.png" />
     <link rel="manifest" href="./testname/img/icon/site.webmanifest" />
 
-<!--    &lt;!&ndash; Google Tag Manager &ndash;&gt;-->
-<!--    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':-->
-<!--            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],-->
-<!--        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=-->
-<!--        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);-->
-<!--    })(window,document,'script','dataLayer','GTM-5G9MGKZV');</script>-->
-<!--    &lt;!&ndash; End Google Tag Manager &ndash;&gt;-->
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-5G9MGKZV');</script>
+    <!-- End Google Tag Manager -->
 
-<!--    &lt;!&ndash; Google Tag Manager (noscript) &ndash;&gt;-->
-<!--    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5G9MGKZV"-->
-<!--                      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>-->
-<!--    &lt;!&ndash; End Google Tag Manager (noscript) &ndash;&gt;-->
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5G9MGKZV"
+                      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
 
 </head>
 <body>
@@ -344,6 +344,11 @@
 </div>
 
 <script id="index_main_js">
+    function getLangFromPath() {
+        const pathSegments = window.location.pathname.split('/');
+        return pathSegments[1]; // 假设语言代码总是在第一个路径段
+    }
+
     $(document).ready(function () {
         let utm_campaign =getQueryParam("utm_campaign") ;
 
@@ -359,7 +364,19 @@
 
         let content =getQueryParam("content") ;
 
+        let source = getQueryParam("utm_source")
+
+        let medium = getQueryParam("utm_medium")
+
         let indexHref = "";
+
+        if(!isNull(medium)){
+            indexHref = indexHref + "&utm_medium=" +medium;
+        }
+
+        if(!isNull(source)){
+            indexHref = indexHref + "&utm_source=" +source;
+        }
 
         if(!isNull(utm_source)){
             indexHref = indexHref + "&source=" +utm_source;
@@ -387,15 +404,15 @@
 
 
         if(!isNull(utm_campaign)){
-            document.getElementById("en_href").href= "./list.html?lang=en" + "&utm_campaign=" +utm_campaign+indexHref
-            document.getElementById("es_href").href= "./list.html?lang=es" + "&utm_campaign=" +utm_campaign+indexHref
-            document.getElementById("fr_href").href= "./list.html?lang=fr" + "&utm_campaign=" +utm_campaign+indexHref
-            document.getElementById("pt_href").href= "./list.html?lang=pt" + "&utm_campaign=" +utm_campaign+indexHref
+            document.getElementById("en_href").href= "./en/list.html?utm_campaign=" +utm_campaign+indexHref
+            document.getElementById("es_href").href= "./es/list.html?utm_campaign=" +utm_campaign+indexHref
+            document.getElementById("fr_href").href= "./fr/list.html?utm_campaign=" +utm_campaign+indexHref
+            document.getElementById("pt_href").href= "./pt/list.html?utm_campaign=" +utm_campaign+indexHref
         }else{
-            document.getElementById("en_href").href= "./list.html?lang=en"+indexHref
-            document.getElementById("es_href").href= "./list.html?lang=es"+indexHref
-            document.getElementById("fr_href").href= "./list.html?lang=fr"+indexHref
-            document.getElementById("pt_href").href= "./list.html?lang=pt"+indexHref
+            document.getElementById("en_href").href= "./en/list.html?"+indexHref
+            document.getElementById("es_href").href= "./es/list.html?"+indexHref
+            document.getElementById("fr_href").href= "./fr/list.html?"+indexHref
+            document.getElementById("pt_href").href= "./pt/list.html?"+indexHref
         }
 
         document.getElementById("en_href").innerText= "English"
@@ -420,7 +437,6 @@
 
 
 </script>
-
 <script src="./testname/js/footJs.js"></script>
 <script src="./testname/js/headerJs.js"></script>
 </body>

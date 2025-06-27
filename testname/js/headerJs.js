@@ -12,6 +12,11 @@ function isNull(value) {
     return value === null;
 }
 
+function getLangFromPath() {
+    const pathSegments = window.location.pathname.split('/');
+    return pathSegments[1]; // 假设语言代码总是在第一个路径段
+}
+
 $(document).ready(function () {
 
     let langPage = getQueryParam("lang")
@@ -30,25 +35,37 @@ $(document).ready(function () {
 
     let country = getQueryParam("country")
 
+    let source = getQueryParam("utm_source")
+
+    let medium = getQueryParam("utm_medium")
+
 
     let indexHref = ""
     let home_str = ""
 
     if(langPage == "fr"){
         home_str = "Acceuil"
-        indexHref = "./list.html?lang=fr"
+        indexHref = "./fr/list.html?"
     }else if(langPage == "es"){
         home_str = "Inicio"
-        indexHref = "./list.html?lang=es"
+        indexHref = "./es/list.html?"
     }else if(langPage == "en"){
         home_str = "Home"
-        indexHref = "./list.html?lang=en"
+        indexHref = "./en/list.html?"
     }else if(langPage == "pt"){
         home_str = "Início"
-        indexHref = "./list.html?lang=pt"
+        indexHref = "./pt/list.html?"
     }else{
         home_str = "FGU"
-        indexHref = "./list.html?lang=fr"
+        indexHref = "./fr/list.html?"
+    }
+
+    if(!isNull(medium)){
+        indexHref = indexHref + "&utm_medium=" +medium;
+    }
+
+    if(!isNull(source)){
+        indexHref = indexHref + "&utm_source=" +source;
     }
 
     if(!isNull(content)){
