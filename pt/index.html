@@ -61,8 +61,8 @@
     </style>
     <link rel="stylesheet" href="./testname/css/one.css">
     <script src="./testname/js/jquery.min.js?V=20200214"></script>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3481735481590354"
-            crossorigin="anonymous"></script>
+<!--    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3481735481590354"-->
+<!--            crossorigin="anonymous"></script>-->
     <script src="./testname/js/google_adv.js"></script>
 
     <link rel="icon" type="image/png" href="./testname/img/icon/favicon-96x96.png" sizes="96x96" />
@@ -420,19 +420,19 @@
         document.getElementById("fr_href").innerText= "Français"
         document.getElementById("pt_href").innerText= "Português"
 
-        const adContainers = document.querySelectorAll('.adsbygoogle');
-        adContainers.forEach((adContainer, index) => {
-            (adsbygoogle = window.adsbygoogle || []).push({});
-            const checkAdStatus = setInterval(() => {
-                if (adContainer.innerHTML.trim()) {
-                    console.log(`广告容器 ${index + 1} 已加载广告`);
-                    clearInterval(checkAdStatus);  // 停止检查
-                } else {
-                    console.log(`广告容器 ${index + 1} 尚未加载广告，重新加载`);
-                    (adsbygoogle = window.adsbygoogle || []).push({});
-                }
-            }, 1000);
-        });
+        // const adContainers = document.querySelectorAll('.adsbygoogle');
+        // adContainers.forEach((adContainer, index) => {
+        //     (adsbygoogle = window.adsbygoogle || []).push({});
+        //     const checkAdStatus = setInterval(() => {
+        //         if (adContainer.innerHTML.trim()) {
+        //             console.log(`广告容器 ${index + 1} 已加载广告`);
+        //             clearInterval(checkAdStatus);  // 停止检查
+        //         } else {
+        //             console.log(`广告容器 ${index + 1} 尚未加载广告，重新加载`);
+        //             (adsbygoogle = window.adsbygoogle || []).push({});
+        //         }
+        //     }, 1000);
+        // });
     });
 
 
