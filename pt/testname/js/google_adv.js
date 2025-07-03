@@ -32,15 +32,7 @@ function returnZhongxiangGuding(){
 //data-adtest="on" 复制该语句到为止为测试模式开启，删掉该语句则为正式广告
 
 function returnListAdv_1(){
-
-    // <!-- /23284785848/list/loadListAdv1 -->
-    // <div id='div-gpt-ad-1751529469858-0'>
-    //     <script>
-    //         googletag.cmd.push(function() { googletag.display('div-gpt-ad-1751529469858-0'); });
-    //     </script>
-    // </div>
-    //
-    return `<div id='div-gpt-ad-1751529469858-0'></div>`
+    return `<div id='div-gpt-ad-1751529469858-1'></div>`
 //     return `<!-- list-1 -->
 // <ins class="adsbygoogle"
 //      style="display:block;width: 100%;min-height: 250px;margin: 0 0 0 0 !important;"
@@ -51,7 +43,7 @@ function returnListAdv_1(){
 }
 
 function returnListAdv_2(){
-    return `<p style="text-align: center">Advertisment</p>`
+    return `<div id='div-gpt-ad-1751540964165-0'></div>`
 //     return `<!-- list-2 -->
 // <ins class="adsbygoogle"
 //      style="display:block;width: 100%;min-height: 250px;margin: 0 0 0 0 !important;"
@@ -62,7 +54,7 @@ function returnListAdv_2(){
 }
 
 function returnListAdv_3(){
-    return `<p style="text-align: center">Advertisment</p>`
+    return `<div id='div-gpt-ad-1751540688195-0'></div>`
 //     return `<!-- list-3 -->
 // <ins class="adsbygoogle"
 //      style="display:block"
@@ -73,7 +65,7 @@ function returnListAdv_3(){
 }
 
 function returnListAdv_4(){
-    return `<p style="text-align: center">Advertisment</p>`
+    return `<div id='div-gpt-ad-1751541451801-0'></div>`
 //     return `<!-- list-4 -->
 // <ins class="adsbygoogle"
 //      style="display:block;width: 100%;min-height: 250px;margin: 0 0 0 0 !important;"
@@ -84,7 +76,7 @@ function returnListAdv_4(){
 }
 
 function returnListAdv_5(){
-    return `<p style="text-align: center">Advertisment</p>`
+    return `<div id='div-gpt-ad-1751541584119-0'></div>`
 //     return `<!-- list-5 -->
 // <ins class="adsbygoogle"
 //      style="display:block"
