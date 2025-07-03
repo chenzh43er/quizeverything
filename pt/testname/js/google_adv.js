@@ -32,7 +32,15 @@ function returnZhongxiangGuding(){
 //data-adtest="on" 复制该语句到为止为测试模式开启，删掉该语句则为正式广告
 
 function returnListAdv_1(){
-    return `<p style="text-align: center">Advertisment</p>`
+
+    // <!-- /23284785848/list/loadListAdv1 -->
+    // <div id='div-gpt-ad-1751529469858-0'>
+    //     <script>
+    //         googletag.cmd.push(function() { googletag.display('div-gpt-ad-1751529469858-0'); });
+    //     </script>
+    // </div>
+    //
+    return `<div id='div-gpt-ad-1751529469858-0'></div>`
 //     return `<!-- list-1 -->
 // <ins class="adsbygoogle"
 //      style="display:block;width: 100%;min-height: 250px;margin: 0 0 0 0 !important;"
