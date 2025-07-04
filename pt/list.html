@@ -29,15 +29,15 @@
 
       //test path
 
-      // googletag.defineSlot('/6355419/Travel/Europe/France/Paris', ['fluid'], 'div-gpt-ad-1751529469858-1').addService(googletag.pubads());
+      // googletag.defineSlot('/6355419/Travel/Europe/France/Paris_1', ['fluid'], 'div-gpt-ad-1751529469858-1').addService(googletag.pubads());
       //
-      // googletag.defineSlot('/6355419/Travel/Europe/France/Paris', ['fluid'], 'div-gpt-ad-1751540964165-0').addService(googletag.pubads());
+      // googletag.defineSlot('/6355419/Travel/Europe/France/Paris_2', [300, 250], 'div-gpt-ad-1751540964165-0').addService(googletag.pubads());
       //
-      // googletag.defineSlot('/6355419/Travel/Europe/France/Paris', ['fluid'], 'div-gpt-ad-1751540688195-0').addService(googletag.pubads());
+      // googletag.defineSlot('/6355419/Travel/Europe/France/Paris_3', ['fluid'], 'div-gpt-ad-1751540688195-0').addService(googletag.pubads());
       //
-      // googletag.defineSlot('/6355419/Travel/Europe/France/Paris', ['fluid'], 'div-gpt-ad-1751541451801-0').addService(googletag.pubads());
+      // googletag.defineSlot('/6355419/Travel/Europe/France/Paris_4', ['fluid'], 'div-gpt-ad-1751541451801-0').addService(googletag.pubads());
       //
-      // googletag.defineSlot('/6355419/Travel/Europe/France/Paris', ['fluid'], 'div-gpt-ad-1751541584119-0').addService(googletag.pubads());
+      // googletag.defineSlot('/6355419/Travel/Europe/France/Paris_5', ['fluid'], 'div-gpt-ad-1751541584119-0').addService(googletag.pubads());
 
       googletag.pubads().enableSingleRequest();
       googletag.enableServices();
@@ -959,6 +959,7 @@
           });
           observer.observe(indexadv_2);
         }
+        document.getElementById('indexadv_4').style.display = 'none';
       }else{
         document.getElementById('indexadv_4').innerHTML= returnAdvWord();
         const indexadv_2 = document.getElementById('indexadv_4')
@@ -975,6 +976,7 @@
           });
           observer.observe(indexadv_2);
         }
+        document.getElementById('indexadv_2').style.display = 'none';
       }
 
 
@@ -1031,59 +1033,78 @@
     }
 
     function loadListAdv_1(el) {
-      // 插入 <ins> HTML
+      const adId = 'div-gpt-ad-1751529469858-1';
       el.innerHTML = returnListAdv_1();
-      // 触发广告加载
-      try {
-        googletag.cmd.push(function() { googletag.display('div-gpt-ad-1751529469858-1'); });
-      } catch (e) {
-        console.error("AdSense push error", e);
-      }
+      waitForAdDiv(adId);
     }
 
     function loadListAdv_2(el) {
-      // 插入 <ins> HTML
+      const adId = 'div-gpt-ad-1751540964165-0';
       el.innerHTML = returnListAdv_2();
-      // 触发广告加载
-      try {
-        googletag.cmd.push(function() { googletag.display('div-gpt-ad-1751540964165-0'); });
-      } catch (e) {
-        console.error("AdSense push error", e);
-      }
+      requestAnimationFrame(() => {
+        const adDiv = document.getElementById(adId);
+        if (adDiv && document.body.contains(adDiv)) {
+          googletag.cmd.push(() => {
+            googletag.display(adId);
+          });
+        }
+      });
     }
 
     function loadListAdv_3(el) {
-      // 插入 <ins> HTML
+      const adId = 'div-gpt-ad-1751540688195-0';
       el.innerHTML = returnListAdv_3();
-      // 触发广告加载
-      try {
-        googletag.cmd.push(function() { googletag.display('div-gpt-ad-1751540688195-0'); });
-      } catch (e) {
-        console.error("AdSense push error", e);
-      }
+      waitForAdDiv(adId);
     }
 
     function loadListAdv_4(el) {
-      // 插入 <ins> HTML
+      const adId = 'div-gpt-ad-1751541451801-0';
       el.innerHTML = returnListAdv_4();
-      // 触发广告加载
-      try {
-        googletag.cmd.push(function() { googletag.display('div-gpt-ad-1751541451801-0'); });
-      } catch (e) {
-        console.error("AdSense push error", e);
-      }
+      waitForAdDiv(adId);
     }
 
     function loadListAdv_5(el) {
-      // 插入 <ins> HTML
+      const adId = 'div-gpt-ad-1751541584119-0';
       el.innerHTML = returnListAdv_5();
-      // 触发广告加载
-      try {
-        googletag.cmd.push(function() { googletag.display('div-gpt-ad-1751541584119-0'); });
-      } catch (e) {
-        console.error("AdSense push error", e);
-      }
+      waitForAdDiv(adId);
     }
+
+    function isAdSlotFilled(adId) {
+      const slot = googletag.pubads().getSlots().find(s => s.getSlotElementId() === adId);
+      if (!slot) {
+        console.warn(`广告位 ${adId} 尚未注册`);
+        return false;
+      }
+
+      const response = slot.getResponseInformation();
+      if (!response) {
+        console.warn(`广告位 ${adId} 没有填充（getResponseInformation() 返回 null）`);
+        return false;
+      }
+
+      console.log(`广告位 ${adId} 成功填充 ✅`, response);
+      return true;
+    }
+
+
+    function waitForAdDiv(adId) {
+      function check() {
+        const adDiv = document.getElementById(adId);
+        if (adDiv && document.body.contains(adDiv)) {
+          try {
+            googletag.cmd.push(() => {
+              googletag.display(adId);
+            });
+          } catch (e) {
+            console.error(`AdSense push error for ${adId}`, e);
+          }
+        } else {
+          requestAnimationFrame(check);
+        }
+      }
+      check();
+    }
+
 
 
 

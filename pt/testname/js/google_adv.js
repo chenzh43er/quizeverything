@@ -32,7 +32,7 @@ function returnZhongxiangGuding(){
 //data-adtest="on" 复制该语句到为止为测试模式开启，删掉该语句则为正式广告
 
 function returnListAdv_1(){
-    return `<div id='div-gpt-ad-1751529469858-1'></div>`
+    return `<div id='div-gpt-ad-1751529469858-1' style="width: 100%; min-height: 250px;"></div>`
 //     return `<!-- list-1 -->
 // <ins class="adsbygoogle"
 //      style="display:block;width: 100%;min-height: 250px;margin: 0 0 0 0 !important;"
@@ -43,7 +43,7 @@ function returnListAdv_1(){
 }
 
 function returnListAdv_2(){
-    return `<div id='div-gpt-ad-1751540964165-0'></div>`
+    return `<div id='div-gpt-ad-1751540964165-0' style="width: 100%; min-height: 250px;"></div>`
 //     return `<!-- list-2 -->
 // <ins class="adsbygoogle"
 //      style="display:block;width: 100%;min-height: 250px;margin: 0 0 0 0 !important;"
@@ -54,7 +54,7 @@ function returnListAdv_2(){
 }
 
 function returnListAdv_3(){
-    return `<div id='div-gpt-ad-1751540688195-0'></div>`
+    return `<div id='div-gpt-ad-1751540688195-0' style="width: 100%; min-height: 250px;"></div>`
 //     return `<!-- list-3 -->
 // <ins class="adsbygoogle"
 //      style="display:block"
@@ -65,7 +65,7 @@ function returnListAdv_3(){
 }
 
 function returnListAdv_4(){
-    return `<div id='div-gpt-ad-1751541451801-0'></div>`
+    return `<div id='div-gpt-ad-1751541451801-0' style="width: 100%; min-height: 250px;"></div>`
 //     return `<!-- list-4 -->
 // <ins class="adsbygoogle"
 //      style="display:block;width: 100%;min-height: 250px;margin: 0 0 0 0 !important;"
@@ -76,7 +76,7 @@ function returnListAdv_4(){
 }
 
 function returnListAdv_5(){
-    return `<div id='div-gpt-ad-1751541584119-0'></div>`
+    return `<div id='div-gpt-ad-1751541584119-0' style="width: 100%; min-height: 250px;"></div>`
 //     return `<!-- list-5 -->
 // <ins class="adsbygoogle"
 //      style="display:block"
@@ -87,7 +87,7 @@ function returnListAdv_5(){
 }
 
 function returnTestAdv_1(){
-    return `<p style="text-align: center">Advertisment</p>`
+    return ``
 //     return `<!-- test-1 -->
 // <ins class="adsbygoogle"
 //      style="display:block"
@@ -109,7 +109,9 @@ function returnTestAdv_2(){
 }
 
 function returnTestAdv_3(){
-    return `<p style="text-align: center">Advertisment</p>`
+    return `<!-- /23284785848/mqqht/loadTestAdv_3 -->
+<div id='div-gpt-ad-1751661330868-0'>
+</div>`
 //     return `<!-- test-3 -->
 // <ins class="adsbygoogle"
 //      style="display:inline-block;width:100%;height:250px"
@@ -120,7 +122,9 @@ function returnTestAdv_3(){
 }
 
 function returnTestAdv_4(){
-    return `<p style="text-align: center">Advertisment</p>`
+    return `<!-- /23284785848/mqqht/loadTestAdv_4 -->
+<div id='div-gpt-ad-1751661226505-0'>
+</div>`
 //     return `<!-- test-4 -->
 // <ins class="adsbygoogle"
 //      style="display:inline-block;width:300px;height:600px"
@@ -129,7 +133,7 @@ function returnTestAdv_4(){
 }
 
 function returnResultAdv_1(){
-    return `<p style="text-align: center">Advertisment</p>`
+    return ``
 //     return `<!-- result-1 -->
 // <ins class="adsbygoogle"
 //      style="display:block"
@@ -140,7 +144,9 @@ function returnResultAdv_1(){
 }
 
 function returnResultAdv_2(){
-    return `<p style="text-align: center">Advertisment</p>`
+    return `<!-- /23284785848/result/loadResultAdv_2 -->
+<div id='div-gpt-ad-1751611776872-0'>
+</div>`
 //     return `<!-- result-2 -->
 // <ins class="adsbygoogle"
 //      style="display:block;width: 100%;min-height: 250px;margin: 0 0 0 0 !important;"
@@ -151,7 +157,9 @@ function returnResultAdv_2(){
 }
 
 function returnResultAdv_3(){
-    return `<p style="text-align: center">Advertisment</p>`
+    return `<!-- /23284785848/result/loadResultAdv_3 -->
+<div id='div-gpt-ad-1751614229847-0'>
+</div>`
 //     return `<!-- result-3 -->
 // <ins class="adsbygoogle"
 //      style="display:inline-block;width:100%;height:200px"
@@ -160,7 +168,9 @@ function returnResultAdv_3(){
 }
 
 function returnResultAdv_4(){
-    return `<p style="text-align: center">Advertisment</p>`
+    return `<!-- /23284785848/result/loadResultAdv_4 -->
+<div id='div-gpt-ad-1751615792248-0'>
+</div>`
 //     return `<!-- result-4 -->
 // <ins class="adsbygoogle"
 //      style="display:block;width: 100%;min-height: 250px;margin: 0 0 0 0 !important;"
@@ -168,6 +178,12 @@ function returnResultAdv_4(){
 //      data-ad-slot="8973505259"
 //      data-ad-format="auto"
 //      data-full-width-responsive="true"></ins>`
+}
+
+function returnResultAdv_5(){
+    return `<!-- /23284785848/result/loadResultAdv_5 -->
+<div id='div-gpt-ad-1751626033131-0'>
+</div>`
 }
 
 

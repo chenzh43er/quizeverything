@@ -128,6 +128,26 @@
 <!--    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3481735481590354"-->
 <!--            crossorigin="anonymous"></script>-->
 
+    <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js" crossorigin="anonymous"></script>
+    <script>
+        window.googletag = window.googletag || {cmd: []};
+        googletag.cmd.push(function() {
+            googletag.defineSlot('/23284785848/result/loadResultAdv_1', ['fluid'], 'top_adv_public').addService(googletag.pubads());
+            googletag.defineSlot('/23284785848/result/loadResultAdv_1', ['fluid'], 'bot_adv_public').addService(googletag.pubads());
+
+            googletag.defineSlot('/23284785848/result/loadResultAdv_2', ['fluid'], 'div-gpt-ad-1751611776872-0').addService(googletag.pubads());
+
+            googletag.defineSlot('/23284785848/result/loadResultAdv_3', ['fluid'], 'div-gpt-ad-1751614229847-0').addService(googletag.pubads());
+
+            googletag.defineSlot('/23284785848/result/loadResultAdv_4', ['fluid'], 'div-gpt-ad-1751615792248-0').addService(googletag.pubads());
+
+            googletag.defineSlot('/23284785848/result/loadResultAdv_5', ['fluid'], 'div-gpt-ad-1751626033131-0').addService(googletag.pubads());
+            googletag.pubads().enableSingleRequest();
+            googletag.enableServices();
+        });
+    </script>
+
+
     <link rel="icon" type="image/png" href="./testname/img/icon/favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="./testname/img/icon/favicon.svg" />
     <link rel="shortcut icon" href="./testname/img/icon/favicon.ico" />
@@ -1109,6 +1129,7 @@
                         if (entry.isIntersecting) {
                             loadResultAdv_2(entry.target);
                             obs.unobserve(entry.target);
+
                         }
                     });
                 }, {
@@ -1126,7 +1147,24 @@
                 document.getElementById('adv_sticky').innerHTML = ''
                 document.getElementById('adv_sticky').style.height = '0px'
             }else{
-                document.getElementById('RightBottom_adbox').innerHTML = returnZhongxiangGuding();
+                //document.getElementById('RightBottom_adbox').innerHTML = returnZhongxiangGuding();
+
+
+                const RightBottom_adbox = document.getElementById('RightBottom_adbox')
+                if (RightBottom_adbox) {
+                    const observer = new IntersectionObserver((entries, obs) => {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting) {
+                                loadResultAdv_5(entry.target);
+                                obs.unobserve(entry.target);
+                            }
+                        });
+                    }, {
+                        rootMargin: '5px',
+                    });
+                    observer.observe(RightBottom_adbox);
+                }
+
             }
 
 
@@ -1543,6 +1581,7 @@
                     if (entry.isIntersecting) {
                         loadResultAdv_1(entry.target);
                         obs.unobserve(entry.target);
+                        googletag.cmd.push(function() { googletag.display('top_adv_public'); });
                     }
                 });
             }, {
@@ -1804,6 +1843,7 @@
                             if (entry.isIntersecting) {
                                 loadResultAdv_1(entry.target);
                                 obs.unobserve(entry.target);
+                                googletag.cmd.push(function() { googletag.display('bot_adv_public'); });
                             }
                         });
                     }, {
@@ -1826,11 +1866,10 @@
         }
 
         function loadResultAdv_1(el) {
-            // 插入 <ins> HTML
-            el.innerHTML = returnResultAdv_1();
             // 触发广告加载
             try {
-                (adsbygoogle = window.adsbygoogle || []).push({});
+                // 插入 <ins> HTML
+                el.innerHTML = returnResultAdv_1();
             } catch (e) {
                 console.error("AdSense push error", e);
             }
@@ -1841,7 +1880,7 @@
             el.innerHTML = returnResultAdv_2();
             // 触发广告加载
             try {
-                (adsbygoogle = window.adsbygoogle || []).push({});
+                googletag.cmd.push(function() { googletag.display('div-gpt-ad-1751611776872-0'); });
             } catch (e) {
                 console.error("AdSense push error", e);
             }
@@ -1852,7 +1891,7 @@
             el.innerHTML = returnResultAdv_3();
             // 触发广告加载
             try {
-                (adsbygoogle = window.adsbygoogle || []).push({});
+                googletag.cmd.push(function() { googletag.display('div-gpt-ad-1751614229847-0'); });
             } catch (e) {
                 console.error("AdSense push error", e);
             }
@@ -1863,7 +1902,18 @@
             el.innerHTML = returnResultAdv_4();
             // 触发广告加载
             try {
-                (adsbygoogle = window.adsbygoogle || []).push({});
+                googletag.cmd.push(function() { googletag.display('div-gpt-ad-1751615792248-0'); });
+            } catch (e) {
+                console.error("AdSense push error", e);
+            }
+        }
+
+        function loadResultAdv_5(el) {
+            // 插入 <ins> HTML
+            el.innerHTML = returnResultAdv_5();
+            // 触发广告加载
+            try {
+                googletag.cmd.push(function() { googletag.display('div-gpt-ad-1751626033131-0'); });
             } catch (e) {
                 console.error("AdSense push error", e);
             }

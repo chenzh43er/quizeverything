@@ -2,45 +2,48 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <title>GPT 多广告位测试</title>
   <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js" crossorigin="anonymous"></script>
+  <style>
+    .ad-container {
+      width: 100%;
+      min-height: 250px; /* fluid 广告至少需要一个高度 */
+      margin: 20px 0;
+      border: 1px dashed #ccc;
+    }
+  </style>
   <script>
     window.googletag = window.googletag || {cmd: []};
     googletag.cmd.push(function() {
-      googletag.defineSlot('/6355419/Travel/Europe/France/Paris/top1', ['fluid'], 'div-gpt-ad-1751529469858-1').addService(googletag.pubads());
+      // 每个广告位使用不同的路径
+      googletag.defineSlot('/6355419/Travel/Europe/France/Paris_1', ['fluid'], 'div-gpt-ad-1').addService(googletag.pubads());
+      googletag.defineSlot('/6355419/Travel/Europe/France/Paris_2', ['fluid'], 'div-gpt-ad-2').addService(googletag.pubads());
+      googletag.defineSlot('/6355419/Travel/Europe/France/Paris_3', ['fluid'], 'div-gpt-ad-3').addService(googletag.pubads());
+      googletag.defineSlot('/6355419/Travel/Europe/France/Paris_4', ['fluid'], 'div-gpt-ad-4').addService(googletag.pubads());
+      googletag.defineSlot('/6355419/Travel/Europe/France/Paris_5', ['fluid'], 'div-gpt-ad-5').addService(googletag.pubads());
 
-      googletag.defineSlot('/6355419/Travel/Europe/France/Paris/mid1', ['fluid'], 'div-gpt-ad-1751540964165-0').addService(googletag.pubads());
-
-      googletag.defineSlot('/6355419/Travel/Europe/France/Paris', ['fluid'], 'div-gpt-ad-1751540688195-0').addService(googletag.pubads());
-
-      googletag.defineSlot('/6355419/Travel/Europe/France/Paris', ['fluid'], 'div-gpt-ad-1751541451801-0').addService(googletag.pubads());
-
-      googletag.defineSlot('/6355419/Travel/Europe/France/Paris', ['fluid'], 'div-gpt-ad-1751541584119-0').addService(googletag.pubads());
-
-      googletag.pubads().enableSingleRequest();
+      googletag.pubads().enableSingleRequest(); // 只发一次请求加载全部广告
       googletag.enableServices();
     });
   </script>
 </head>
 <body>
 
-<!-- /23284785848/list -->
-<div id='div-gpt-ad-1751529469858-1'>
-</div>
-<div id='div-gpt-ad-1751540964165-0'>
-</div>
-<div id='div-gpt-ad-1751540688195-0'>
-</div>
-<div id='div-gpt-ad-1751541451801-0'>
-</div>
-<div id='div-gpt-ad-1751541584119-0'>
-</div>
+<h2>广告位测试页面</h2>
+
+<div id="div-gpt-ad-1" class="ad-container"></div>
+<div id="div-gpt-ad-2" class="ad-container"></div>
+<div id="div-gpt-ad-3" class="ad-container"></div>
+<div id="div-gpt-ad-4" class="ad-container"></div>
+<div id="div-gpt-ad-5" class="ad-container"></div>
 
 <script>
-  googletag.cmd.push(function() { googletag.display('div-gpt-ad-1751529469858-1'); });
-  googletag.cmd.push(function() { googletag.display('div-gpt-ad-1751540964165-0'); });
-  googletag.cmd.push(function() { googletag.display('div-gpt-ad-1751540688195-0'); });
-  googletag.cmd.push(function() { googletag.display('div-gpt-ad-1751541451801-0'); });
-  googletag.cmd.push(function() { googletag.display('div-gpt-ad-1751541584119-0'); });
+  googletag.cmd.push(function() {
+    ['div-gpt-ad-1', 'div-gpt-ad-2', 'div-gpt-ad-3', 'div-gpt-ad-4', 'div-gpt-ad-5'].forEach(id => {
+      googletag.display(id);
+    });
+  });
 </script>
+
 </body>
 </html>
