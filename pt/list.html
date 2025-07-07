@@ -13,8 +13,6 @@
 <!--          crossorigin="anonymous"></script>-->
   <script src="./testname/js/google_adv.js"></script>
   <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js" crossorigin="anonymous"></script>
-
-  <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js" crossorigin="anonymous"></script>
   <script>
     window.googletag = window.googletag || {cmd: []};
     googletag.cmd.push(function() {
@@ -27,27 +25,40 @@
   <script>
     window.googletag = window.googletag || {cmd: []};
     googletag.cmd.push(function() {
-      googletag.defineSlot('/23284785848/list/loadListAdv1', ['fluid'], 'div-gpt-ad-1751529469858-1').addService(googletag.pubads());
 
-      googletag.defineSlot('/23284785848/list/loadListAdv2', ['fluid'], 'div-gpt-ad-1751540964165-0').addService(googletag.pubads());
+      var mapping = googletag.sizeMapping()
+              .addSize([1024, 0], [[728, 90]])      // PC端视口宽度 >= 1024，使用 728x90
+              .addSize([0, 0], [[300, 250]])        // 移动端（默认），使用 300x250
+              .build();
 
-      googletag.defineSlot('/23284785848/list/loadListAdv3', ['fluid'], 'div-gpt-ad-1751540688195-0').addService(googletag.pubads());
-
-      googletag.defineSlot('/23284785848/list/returnListAdv4', ['fluid'], 'div-gpt-ad-1751541451801-0').addService(googletag.pubads());
-
-      googletag.defineSlot('/23284785848/list/loadListAdv5', ['fluid'], 'div-gpt-ad-1751541584119-0').addService(googletag.pubads());
+      // googletag.defineSlot('/23284785848/list/loadListAdv1', ['fluid'], 'div-gpt-ad-1751529469858-1').addService(googletag.pubads());
+      //
+      // googletag.defineSlot('/23284785848/list/loadListAdv2', ['fluid'], 'div-gpt-ad-1751540964165-0').addService(googletag.pubads());
+      //
+      // googletag.defineSlot('/23284785848/list/loadListAdv3', ['fluid'], 'div-gpt-ad-1751540688195-0').addService(googletag.pubads());
+      //
+      // googletag.defineSlot('/23284785848/list/loadListAdv4', ['fluid'], 'div-gpt-ad-1751541451801-0').addService(googletag.pubads());
+      //
+      // googletag.defineSlot('/23284785848/list/loadListAdv5', ['fluid'], 'div-gpt-ad-1751541584119-0').addService(googletag.pubads());
 
       //test path
 
-      // googletag.defineSlot('/6355419/Travel/Europe/France/Paris_1', ['fluid'], 'div-gpt-ad-1751529469858-1').addService(googletag.pubads());
-      //
-      // googletag.defineSlot('/6355419/Travel/Europe/France/Paris_2', [300, 250], 'div-gpt-ad-1751540964165-0').addService(googletag.pubads());
-      //
-      // googletag.defineSlot('/6355419/Travel/Europe/France/Paris_3', ['fluid'], 'div-gpt-ad-1751540688195-0').addService(googletag.pubads());
-      //
-      // googletag.defineSlot('/6355419/Travel/Europe/France/Paris_4', ['fluid'], 'div-gpt-ad-1751541451801-0').addService(googletag.pubads());
-      //
-      // googletag.defineSlot('/6355419/Travel/Europe/France/Paris_5', ['fluid'], 'div-gpt-ad-1751541584119-0').addService(googletag.pubads());
+      // 定义广告位，并应用尺寸映射
+      googletag.defineSlot('/23284785848/list/loadListAdv1', [[728, 90], [300, 250]], 'div-gpt-ad-1751529469858-1')
+              .defineSizeMapping(mapping)
+              .addService(googletag.pubads());
+
+      googletag.defineSlot('/23284785848/list/loadListAdv2', [300, 250], 'div-gpt-ad-1751540964165-0').addService(googletag.pubads());
+
+      googletag.defineSlot('/23284785848/list/loadListAdv3', [[728, 90], [300, 250]], 'div-gpt-ad-1751540688195-0')
+              .defineSizeMapping(mapping)
+              .addService(googletag.pubads());
+
+      googletag.defineSlot('/23284785848/list/loadListAdv4', [300, 250], 'div-gpt-ad-1751541451801-0').addService(googletag.pubads());
+
+      googletag.defineSlot('/23284785848/list/loadListAdv5', [[728, 90], [300, 250]], 'div-gpt-ad-1751541584119-0')
+              .defineSizeMapping(mapping)
+              .addService(googletag.pubads());
 
       googletag.pubads().enableSingleRequest();
       googletag.enableServices();
@@ -91,7 +102,7 @@
 
     .mid_adv{
       width: 100%;
-      min-height: 298px;
+
     }
 
     .tempTitle {

@@ -132,15 +132,38 @@
     <script>
         window.googletag = window.googletag || {cmd: []};
         googletag.cmd.push(function() {
-            googletag.defineSlot('/23284785848/result/loadResultAdv_1', ['fluid'], 'top_adv_public').addService(googletag.pubads());
-            googletag.defineSlot('/23284785848/result/loadResultAdv_1', ['fluid'], 'bot_adv_public').addService(googletag.pubads());
+            var mapping = googletag.sizeMapping()
+                .addSize([1024, 0], [[728, 90]])      // PC端视口宽度 >= 1024，使用 728x90
+                .addSize([0, 0], [[300, 250]])        // 移动端（默认），使用 300x250
+                .build();
 
-            googletag.defineSlot('/23284785848/result/loadResultAdv_2', ['fluid'], 'div-gpt-ad-1751611776872-0').addService(googletag.pubads());
+            // googletag.defineSlot('/23284785848/result/loadResultAdv_1', ['fluid'], 'top_adv_public').addService(googletag.pubads());
+            // googletag.defineSlot('/23284785848/result/loadResultAdv_1', ['fluid'], 'bot_adv_public').addService(googletag.pubads());
+            //
+            // googletag.defineSlot('/23284785848/result/loadResultAdv_2', ['fluid'], 'div-gpt-ad-1751611776872-0').addService(googletag.pubads());
+            //
+            // googletag.defineSlot('/23284785848/result/loadResultAdv_3', ['fluid'], 'div-gpt-ad-1751614229847-0').addService(googletag.pubads());
+            //
+            // googletag.defineSlot('/23284785848/result/loadResultAdv_4', ['fluid'], 'div-gpt-ad-1751615792248-0').addService(googletag.pubads());
+            //
+            // googletag.defineSlot('/23284785848/result/loadResultAdv_5', ['fluid'], 'div-gpt-ad-1751626033131-0').addService(googletag.pubads());
 
-            googletag.defineSlot('/23284785848/result/loadResultAdv_3', ['fluid'], 'div-gpt-ad-1751614229847-0').addService(googletag.pubads());
+            googletag.defineSlot('/23284785848/result/loadResultAdv_1', ['fluid'], 'top_adv_public')
+                .defineSizeMapping(mapping)
+                .addService(googletag.pubads());
+            googletag.defineSlot('/23284785848/result/loadResultAdv_1', ['fluid'], 'bot_adv_public')
+                .defineSizeMapping(mapping)
+                .addService(googletag.pubads());
 
-            googletag.defineSlot('/23284785848/result/loadResultAdv_4', ['fluid'], 'div-gpt-ad-1751615792248-0').addService(googletag.pubads());
+            googletag.defineSlot('/23284785848/result/loadResultAdv_2',  [300, 250], 'div-gpt-ad-1751611776872-0').addService(googletag.pubads());
 
+            googletag.defineSlot('/23284785848/result/loadResultAdv_3', [[728, 90], [300, 250]], 'div-gpt-ad-1751614229847-0')
+                .defineSizeMapping(mapping)
+                .addService(googletag.pubads());
+
+            googletag.defineSlot('/23284785848/result/loadResultAdv_4',[300, 250], 'div-gpt-ad-1751615792248-0').addService(googletag.pubads());
+
+            //right
             googletag.defineSlot('/23284785848/result/loadResultAdv_5', ['fluid'], 'div-gpt-ad-1751626033131-0').addService(googletag.pubads());
             googletag.pubads().enableSingleRequest();
             googletag.enableServices();
@@ -262,7 +285,7 @@
                     </div>
                 </div>
             </div>
-            <div class="elementor-column elementor-col-66 elementor-top-column elementor-element elementor-element-16a4503"
+            <div class="elementor-column elementor-col-70 elementor-top-column elementor-element elementor-element-16a4503"
                  data-id="16a4503" data-element_type="column">
                 <div class="elementor-widget-wrap elementor-element-populated">
                     <div class="elementor-element elementor-element-20d443e elementor-nav-menu--dropdown-none elementor-nav-menu__align-end elementor-widget elementor-widget-nav-menu"
@@ -349,7 +372,7 @@
                             <div class="elementor-element elementor-element-29355a6 elementor-widget__width-initial elementor-widget elementor-widget-html"
                                  data-id="29355a6" data-element_type="widget" data-widget_type="html.default">
                                 <div class="elementor-widget-container">
-                                    <div id="top_adv_public">
+                                    <div id="top_adv_public" style="text-align: center">
                                     </div>
                                 </div>
                             </div>
@@ -358,7 +381,7 @@
                 </div>
 
                 <div class="elementor-container elementor-column-gap-default">
-                    <div class="elementor-column elementor-col-66 elementor-top-column elementor-element elementor-element-2ff9f33"
+                    <div class="elementor-column elementor-col-70 elementor-top-column elementor-element elementor-element-2ff9f33"
                          data-id="2ff9f33" data-element_type="column">
                         <div class="elementor-widget-wrap elementor-element-populated">
                             <div class="elementor-element elementor-element-80fa620 elementor-widget elementor-widget-html"
@@ -589,7 +612,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-69a0146"
+                    <div class="elementor-column elementor-col-30 elementor-top-column elementor-element elementor-element-69a0146"
                          data-id="69a0146" data-element_type="column">
                         <div class="elementor-widget-wrap elementor-element-populated">
                             <div class="elementor-element elementor-element-29355a6 elementor-widget__width-initial elementor-widget elementor-widget-html"
@@ -665,7 +688,7 @@
                             <div class="elementor-element elementor-element-29355a6 elementor-widget__width-initial elementor-widget elementor-widget-html"
                                  data-id="29355a6" data-element_type="widget" data-widget_type="html.default">
                                 <div class="elementor-widget-container">
-                                    <div id="bot_adv_public">
+                                    <div id="bot_adv_public" style="text-align: center">
                                     </div>
                                 </div>
                             </div>
