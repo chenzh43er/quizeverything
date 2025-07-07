@@ -1099,7 +1099,7 @@ footer .site-navigation ul.menu a {
     margin: 0
 }
 
-.elementor embed,.elementor iframe,.elementor object,.elementor video {
+.elementor embed,.elementor object,.elementor video {
     border: none;
     line-height: 1;
     margin: 0;
@@ -1475,7 +1475,7 @@ footer .site-navigation ul.menu a {
 }
 
 .elementor-section.elementor-section-boxed>.elementor-container {
-    max-width: 1140px
+    max-width: 1350px
 }
 
 .elementor-section.elementor-section-stretched {
@@ -3562,11 +3562,11 @@ body.rtl .e-con {
 }
 
 .elementor-section.elementor-section-boxed>.elementor-container {
-    max-width: 1140px
+    max-width: 1200px
 }
 
 .e-con {
-    --container-max-width: 1140px
+    --container-max-width: 1200px
 }
 
 .elementor-widget:not(:last-child) {

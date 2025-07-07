@@ -128,6 +128,49 @@
 <!--    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3481735481590354"-->
 <!--            crossorigin="anonymous"></script>-->
 
+    <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js" crossorigin="anonymous"></script>
+    <script>
+        window.googletag = window.googletag || {cmd: []};
+        googletag.cmd.push(function() {
+            var mapping = googletag.sizeMapping()
+                .addSize([1024, 0], [[728, 90]])      // PC端视口宽度 >= 1024，使用 728x90
+                .addSize([0, 0], [[300, 250]])        // 移动端（默认），使用 300x250
+                .build();
+
+            // googletag.defineSlot('/23284785848/result/loadResultAdv_1', ['fluid'], 'top_adv_public').addService(googletag.pubads());
+            // googletag.defineSlot('/23284785848/result/loadResultAdv_1', ['fluid'], 'bot_adv_public').addService(googletag.pubads());
+            //
+            // googletag.defineSlot('/23284785848/result/loadResultAdv_2', ['fluid'], 'div-gpt-ad-1751611776872-0').addService(googletag.pubads());
+            //
+            // googletag.defineSlot('/23284785848/result/loadResultAdv_3', ['fluid'], 'div-gpt-ad-1751614229847-0').addService(googletag.pubads());
+            //
+            // googletag.defineSlot('/23284785848/result/loadResultAdv_4', ['fluid'], 'div-gpt-ad-1751615792248-0').addService(googletag.pubads());
+            //
+            // googletag.defineSlot('/23284785848/result/loadResultAdv_5', ['fluid'], 'div-gpt-ad-1751626033131-0').addService(googletag.pubads());
+
+            googletag.defineSlot('/23284785848/result/loadResultAdv_1', ['fluid'], 'top_adv_public')
+                .defineSizeMapping(mapping)
+                .addService(googletag.pubads());
+            googletag.defineSlot('/23284785848/result/loadResultAdv_1', ['fluid'], 'bot_adv_public')
+                .defineSizeMapping(mapping)
+                .addService(googletag.pubads());
+
+            googletag.defineSlot('/23284785848/result/loadResultAdv_2',  [300, 250], 'div-gpt-ad-1751611776872-0').addService(googletag.pubads());
+
+            googletag.defineSlot('/23284785848/result/loadResultAdv_3', [[728, 90], [300, 250]], 'div-gpt-ad-1751614229847-0')
+                .defineSizeMapping(mapping)
+                .addService(googletag.pubads());
+
+            googletag.defineSlot('/23284785848/result/loadResultAdv_4',[300, 250], 'div-gpt-ad-1751615792248-0').addService(googletag.pubads());
+
+            //right
+            googletag.defineSlot('/23284785848/result/loadResultAdv_5', ['fluid'], 'div-gpt-ad-1751626033131-0').addService(googletag.pubads());
+            googletag.pubads().enableSingleRequest();
+            googletag.enableServices();
+        });
+    </script>
+
+
     <link rel="icon" type="image/png" href="./testname/img/icon/favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="./testname/img/icon/favicon.svg" />
     <link rel="shortcut icon" href="./testname/img/icon/favicon.ico" />
@@ -242,7 +285,7 @@
                     </div>
                 </div>
             </div>
-            <div class="elementor-column elementor-col-66 elementor-top-column elementor-element elementor-element-16a4503"
+            <div class="elementor-column elementor-col-70 elementor-top-column elementor-element elementor-element-16a4503"
                  data-id="16a4503" data-element_type="column">
                 <div class="elementor-widget-wrap elementor-element-populated">
                     <div class="elementor-element elementor-element-20d443e elementor-nav-menu--dropdown-none elementor-nav-menu__align-end elementor-widget elementor-widget-nav-menu"
@@ -329,7 +372,7 @@
                             <div class="elementor-element elementor-element-29355a6 elementor-widget__width-initial elementor-widget elementor-widget-html"
                                  data-id="29355a6" data-element_type="widget" data-widget_type="html.default">
                                 <div class="elementor-widget-container">
-                                    <div id="top_adv_public">
+                                    <div id="top_adv_public" style="text-align: center">
                                     </div>
                                 </div>
                             </div>
@@ -338,7 +381,7 @@
                 </div>
 
                 <div class="elementor-container elementor-column-gap-default">
-                    <div class="elementor-column elementor-col-66 elementor-top-column elementor-element elementor-element-2ff9f33"
+                    <div class="elementor-column elementor-col-70 elementor-top-column elementor-element elementor-element-2ff9f33"
                          data-id="2ff9f33" data-element_type="column">
                         <div class="elementor-widget-wrap elementor-element-populated">
                             <div class="elementor-element elementor-element-80fa620 elementor-widget elementor-widget-html"
@@ -569,7 +612,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-69a0146"
+                    <div class="elementor-column elementor-col-30 elementor-top-column elementor-element elementor-element-69a0146"
                          data-id="69a0146" data-element_type="column">
                         <div class="elementor-widget-wrap elementor-element-populated">
                             <div class="elementor-element elementor-element-29355a6 elementor-widget__width-initial elementor-widget elementor-widget-html"
@@ -645,7 +688,7 @@
                             <div class="elementor-element elementor-element-29355a6 elementor-widget__width-initial elementor-widget elementor-widget-html"
                                  data-id="29355a6" data-element_type="widget" data-widget_type="html.default">
                                 <div class="elementor-widget-container">
-                                    <div id="bot_adv_public">
+                                    <div id="bot_adv_public" style="text-align: center">
                                     </div>
                                 </div>
                             </div>
@@ -1109,6 +1152,7 @@
                         if (entry.isIntersecting) {
                             loadResultAdv_2(entry.target);
                             obs.unobserve(entry.target);
+
                         }
                     });
                 }, {
@@ -1126,7 +1170,24 @@
                 document.getElementById('adv_sticky').innerHTML = ''
                 document.getElementById('adv_sticky').style.height = '0px'
             }else{
-                document.getElementById('RightBottom_adbox').innerHTML = returnZhongxiangGuding();
+                //document.getElementById('RightBottom_adbox').innerHTML = returnZhongxiangGuding();
+
+
+                const RightBottom_adbox = document.getElementById('RightBottom_adbox')
+                if (RightBottom_adbox) {
+                    const observer = new IntersectionObserver((entries, obs) => {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting) {
+                                loadResultAdv_5(entry.target);
+                                obs.unobserve(entry.target);
+                            }
+                        });
+                    }, {
+                        rootMargin: '5px',
+                    });
+                    observer.observe(RightBottom_adbox);
+                }
+
             }
 
 
@@ -1543,6 +1604,7 @@
                     if (entry.isIntersecting) {
                         loadResultAdv_1(entry.target);
                         obs.unobserve(entry.target);
+                        googletag.cmd.push(function() { googletag.display('top_adv_public'); });
                     }
                 });
             }, {
@@ -1804,6 +1866,7 @@
                             if (entry.isIntersecting) {
                                 loadResultAdv_1(entry.target);
                                 obs.unobserve(entry.target);
+                                googletag.cmd.push(function() { googletag.display('bot_adv_public'); });
                             }
                         });
                     }, {
@@ -1826,11 +1889,10 @@
         }
 
         function loadResultAdv_1(el) {
-            // 插入 <ins> HTML
-            el.innerHTML = returnResultAdv_1();
             // 触发广告加载
             try {
-                (adsbygoogle = window.adsbygoogle || []).push({});
+                // 插入 <ins> HTML
+                el.innerHTML = returnResultAdv_1();
             } catch (e) {
                 console.error("AdSense push error", e);
             }
@@ -1841,7 +1903,7 @@
             el.innerHTML = returnResultAdv_2();
             // 触发广告加载
             try {
-                (adsbygoogle = window.adsbygoogle || []).push({});
+                googletag.cmd.push(function() { googletag.display('div-gpt-ad-1751611776872-0'); });
             } catch (e) {
                 console.error("AdSense push error", e);
             }
@@ -1852,7 +1914,7 @@
             el.innerHTML = returnResultAdv_3();
             // 触发广告加载
             try {
-                (adsbygoogle = window.adsbygoogle || []).push({});
+                googletag.cmd.push(function() { googletag.display('div-gpt-ad-1751614229847-0'); });
             } catch (e) {
                 console.error("AdSense push error", e);
             }
@@ -1863,7 +1925,18 @@
             el.innerHTML = returnResultAdv_4();
             // 触发广告加载
             try {
-                (adsbygoogle = window.adsbygoogle || []).push({});
+                googletag.cmd.push(function() { googletag.display('div-gpt-ad-1751615792248-0'); });
+            } catch (e) {
+                console.error("AdSense push error", e);
+            }
+        }
+
+        function loadResultAdv_5(el) {
+            // 插入 <ins> HTML
+            el.innerHTML = returnResultAdv_5();
+            // 触发广告加载
+            try {
+                googletag.cmd.push(function() { googletag.display('div-gpt-ad-1751626033131-0'); });
             } catch (e) {
                 console.error("AdSense push error", e);
             }
