@@ -21,48 +21,51 @@
   </script>
 
   <script>
-    window.googletag = window.googletag || {cmd: []};
-    googletag.cmd.push(function() {
+    window.googletag = window.googletag || { cmd: [] };
 
+    googletag.cmd.push(function() {
       var mapping = googletag.sizeMapping()
-              .addSize([1024, 0], [[728, 90]])      // PC端视口宽度 >= 1024，使用 728x90
-              .addSize([0, 0], [[300, 250]])        // 移动端（默认），使用 300x250
+              .addSize([1024, 0], [[728, 90]])   // PC端宽度 >=1024 使用 728x90
+              .addSize([768, 0], [[300, 250]])   // 平板宽度 >=768 使用 300x250
+              .addSize([0, 0], [[300, 250]])     // 移动端 使用 300x250
               .build();
 
-      // googletag.defineSlot('/23284785848/list/loadListAdv1', ['fluid'], 'div-gpt-ad-1751529469858-1').addService(googletag.pubads());
-      //
-      // googletag.defineSlot('/23284785848/list/loadListAdv2', ['fluid'], 'div-gpt-ad-1751540964165-0').addService(googletag.pubads());
-      //
-      // googletag.defineSlot('/23284785848/list/loadListAdv3', ['fluid'], 'div-gpt-ad-1751540688195-0').addService(googletag.pubads());
-      //
-      // googletag.defineSlot('/23284785848/list/loadListAdv4', ['fluid'], 'div-gpt-ad-1751541451801-0').addService(googletag.pubads());
-      //
-      // googletag.defineSlot('/23284785848/list/loadListAdv5', ['fluid'], 'div-gpt-ad-1751541584119-0').addService(googletag.pubads());
-
-      //test path
-
-      // 定义广告位，并应用尺寸映射
+      // 1. 广告位 loadListAdv1，响应式尺寸映射
       googletag.defineSlot('/23284785848/list/loadListAdv1', [[728, 90], [300, 250]], 'div-gpt-ad-1751529469858-1')
               .defineSizeMapping(mapping)
               .addService(googletag.pubads());
 
-      googletag.defineSlot('/23284785848/list/loadListAdv2', [300, 250], 'div-gpt-ad-1751540964165-0').addService(googletag.pubads());
+      // 2. loadListAdv2，补充尺寸映射
+      googletag.defineSlot('/23284785848/list/loadListAdv2', [[300, 250]], 'div-gpt-ad-1751540964165-0')
+              .defineSizeMapping(mapping)
+              .addService(googletag.pubads());
 
+      // 3. loadListAdv3，响应式尺寸映射
       googletag.defineSlot('/23284785848/list/loadListAdv3', [[728, 90], [300, 250]], 'div-gpt-ad-1751540688195-0')
               .defineSizeMapping(mapping)
               .addService(googletag.pubads());
 
-      googletag.defineSlot('/23284785848/list/loadListAdv4', [300, 250], 'div-gpt-ad-1751541451801-0').addService(googletag.pubads());
+      // 4. loadListAdv4，补充尺寸映射
+      googletag.defineSlot('/23284785848/list/loadListAdv4', [[300, 250]], 'div-gpt-ad-1751541451801-0')
+              .defineSizeMapping(mapping)
+              .addService(googletag.pubads());
 
+      // 5. loadListAdv5，响应式尺寸映射
       googletag.defineSlot('/23284785848/list/loadListAdv5', [[728, 90], [300, 250]], 'div-gpt-ad-1751541584119-0')
               .defineSizeMapping(mapping)
               .addService(googletag.pubads());
 
+      // 自动隐藏未填充广告位
+      googletag.pubads().collapseEmptyDivs(true);
+
+      // 单请求模式，提高请求效率
       googletag.pubads().enableSingleRequest();
+
+      // 启动广告服务
       googletag.enableServices();
     });
-
   </script>
+
 
   </script>
 

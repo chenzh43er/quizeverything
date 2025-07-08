@@ -128,45 +128,44 @@
 
     <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js" crossorigin="anonymous"></script>
     <script>
-        window.googletag = window.googletag || {cmd: []};
-        googletag.cmd.push(function() {
-            var mapping = googletag.sizeMapping()
-                .addSize([1024, 0], [[728, 90]])      // PC端视口宽度 >= 1024，使用 728x90
-                .addSize([0, 0], [[300, 250]])        // 移动端（默认），使用 300x250
+        window.googletag = window.googletag || { cmd: [] };
+
+        googletag.cmd.push(function () {
+            const mapping = googletag.sizeMapping()
+                .addSize([1024, 0], [[728, 90]])   // PC
+                .addSize([0, 0], [[300, 250]])     // mobile fallback
                 .build();
 
-            // googletag.defineSlot('/23284785848/result/loadResultAdv_1', ['fluid'], 'top_adv_public').addService(googletag.pubads());
-            // googletag.defineSlot('/23284785848/result/loadResultAdv_1', ['fluid'], 'bot_adv_public').addService(googletag.pubads());
-            //
-            // googletag.defineSlot('/23284785848/result/loadResultAdv_2', ['fluid'], 'div-gpt-ad-1751611776872-0').addService(googletag.pubads());
-            //
-            // googletag.defineSlot('/23284785848/result/loadResultAdv_3', ['fluid'], 'div-gpt-ad-1751614229847-0').addService(googletag.pubads());
-            //
-            // googletag.defineSlot('/23284785848/result/loadResultAdv_4', ['fluid'], 'div-gpt-ad-1751615792248-0').addService(googletag.pubads());
-            //
-            // googletag.defineSlot('/23284785848/result/loadResultAdv_5', ['fluid'], 'div-gpt-ad-1751626033131-0').addService(googletag.pubads());
-
+            // 将 bot_adv_public 改为独立路径，避免冲突
             googletag.defineSlot('/23284785848/result/loadResultAdv_1', [[728, 90], [300, 250]], 'top_adv_public')
                 .defineSizeMapping(mapping)
                 .addService(googletag.pubads());
-            googletag.defineSlot('/23284785848/result/loadResultAdv_1', [[728, 90], [300, 250]], 'bot_adv_public')
+
+            googletag.defineSlot('/23284785848/result/loadResultAdv_1_b', [[728, 90], [300, 250]], 'bot_adv_public') // ✅ 路径更名
                 .defineSizeMapping(mapping)
                 .addService(googletag.pubads());
 
-            googletag.defineSlot('/23284785848/result/loadResultAdv_2',  [300, 250], 'div-gpt-ad-1751611776872-0').addService(googletag.pubads());
+            googletag.defineSlot('/23284785848/result/loadResultAdv_2', [[300, 250], [336, 280]], 'div-gpt-ad-1751611776872-0') // ✅ 添加备用尺寸
+                .defineSizeMapping(mapping)
+                .addService(googletag.pubads());
 
             googletag.defineSlot('/23284785848/result/loadResultAdv_3', [[728, 90], [300, 250]], 'div-gpt-ad-1751614229847-0')
                 .defineSizeMapping(mapping)
                 .addService(googletag.pubads());
 
-            googletag.defineSlot('/23284785848/result/loadResultAdv_4',[300, 250], 'div-gpt-ad-1751615792248-0').addService(googletag.pubads());
+            googletag.defineSlot('/23284785848/result/loadResultAdv_4', [[300, 250], [336, 280]], 'div-gpt-ad-1751615792248-0')
+                .defineSizeMapping(mapping)
+                .addService(googletag.pubads());
 
-            //right
-            googletag.defineSlot('/23284785848/result/loadResultAdv_5', ['fluid'], 'div-gpt-ad-1751626033131-0').addService(googletag.pubads());
+            googletag.defineSlot('/23284785848/result/loadResultAdv_5', ['fluid'], 'div-gpt-ad-1751626033131-0')
+                .addService(googletag.pubads());
+
+            googletag.pubads().collapseEmptyDivs(true); // ✅ 自动隐藏未填充广告位
             googletag.pubads().enableSingleRequest();
             googletag.enableServices();
         });
     </script>
+
 
 
     <link rel="icon" type="image/png" href="./testname/img/icon/favicon-96x96.png" sizes="96x96" />
