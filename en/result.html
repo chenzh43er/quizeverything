@@ -137,8 +137,7 @@
                 .build();
 
             // 将 bot_adv_public 改为独立路径，避免冲突
-            googletag.defineSlot('/23284785848/result/loadResultAdv_1', [[728, 90], [300, 250]], 'top_adv_public')
-                .defineSizeMapping(mapping)
+            googletag.defineSlot('/23284785848/result/loadResultAdv_1', ['fluid'] , 'top_adv_public')
                 .addService(googletag.pubads());
 
             googletag.defineSlot('/23284785848/result/loadResultAdv_1_b', [[728, 90], [300, 250]], 'bot_adv_public') // ✅ 路径更名
@@ -149,7 +148,7 @@
                 .defineSizeMapping(mapping)
                 .addService(googletag.pubads());
 
-            googletag.defineSlot('/23284785848/result/loadResultAdv_3', [[728, 90], [300, 250]], 'div-gpt-ad-1751614229847-0')
+            googletag.defineSlot('/23284785848/result/loadResultAdv_3', [[728, 90], [300, 250]], 'div-gpt-ad-1751614229847-0' )
                 .defineSizeMapping(mapping)
                 .addService(googletag.pubads());
 
@@ -194,7 +193,6 @@
 
         .ad-container {
             width: 100%;
-            min-height: 150px;
         }
 
         a.no-style {

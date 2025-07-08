@@ -21,8 +21,7 @@
                 .build();
 
             // 顶部广告位：正常
-            googletag.defineSlot('/23284785848/mqqht/loadTestAdv_1', [[728, 90], [300, 250]], 'top_adv_public')
-                .defineSizeMapping(mapping)
+            googletag.defineSlot('/23284785848/mqqht/loadTestAdv_1', ['fluid'], 'top_adv_public')
                 .addService(googletag.pubads());
 
             // 底部广告位：使用不同路径避免冲突
