@@ -26,7 +26,8 @@
                 .build();
 
             // 顶部广告位：正常
-            googletag.defineSlot('/23284785848/mqqht/loadTestAdv_1', ['fluid'], 'top_adv_public')
+            googletag.defineSlot('/23284785848/mqqht/loadTestAdv_1',[[728, 90], [300, 250]], 'top_adv_public')
+                .defineSizeMapping(mapping)
                 .addService(googletag.pubads());
 
             // 底部广告位：使用不同路径避免冲突
@@ -35,13 +36,16 @@
                 .addService(googletag.pubads());
 
             // 中部自动宽高广告：fluid
-            googletag.defineSlot('/23284785848/mqqht/loadTestAdv_3', [[728, 90], [300, 250]], 'submitDownAdv')
+            googletag.defineSlot('/23284785848/mqqht/loadTestAdv_3', [[728, 90], [300, 250]], 'div-gpt-ad-1751661330868-0')
                 .defineSizeMapping(mapping)
                 .addService(googletag.pubads());
 
             // 右侧广告位：300x600，固定尺寸，添加兼容映射
             googletag.defineSlot('/23284785848/mqqht/loadTestAdv_4', [[300, 600], [300, 250]], 'div-gpt-ad-1751661226505-0')
                 .defineSizeMapping(mappingRight)
+                .addService(googletag.pubads());
+
+            googletag.defineSlot('/23284785848/mqqht/loadTestAdv_5', [[300, 250], 'fluid'], 'div-gpt-ad-1752245756693-0')
                 .addService(googletag.pubads());
 
             // 自动隐藏未填充的广告容器
@@ -55,6 +59,7 @@
         });
     </script>
 
+    <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js" crossorigin="anonymous"></script>
 
 
     <script src="./testname/js/google_adv.js"></script>
@@ -281,6 +286,11 @@
         }
 
         .advtestAdv_2{
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .advtest{
             text-align: center;
             margin-bottom: 10px;
         }
@@ -628,6 +638,9 @@
 
 
                                 <div class="new-quizzes" id="this_mt_right">
+                                    <div style="text-align: center" id = "rightTop_adv">
+
+                                    </div>
                                     <h3 class="new-quizzes-title">
                                         <img data-recalc-dims="1" decoding="async" class="title_ornament_right"
                                             src="./testname/img/title_ornament_left.png?w=800&amp;ssl=1"
@@ -918,23 +931,25 @@
 
                 document.getElementById('longQuizSelect').innerHTML = questionsHtml + submitButton;
 
-                //submitDownAdv
-
-                const submitDownAdv = document.getElementById('submitDownAdv')
-                if (submitDownAdv) {
-                    const observer = new IntersectionObserver((entries, obs) => {
-                        entries.forEach(entry => {
-                            if (entry.isIntersecting) {
-                                loadTestAdv_3(entry.target);
-                                obs.unobserve(entry.target);
-                                googletag.cmd.push(function() { googletag.display('submitDownAdv'); });
-                            }
+                    //submitDownAdv
+                    const submitDownAdv = document.getElementById('submitDownAdv')
+                    if (submitDownAdv) {
+                        const observer = new IntersectionObserver((entries, obs) => {
+                            entries.forEach(entry => {
+                                if (entry.isIntersecting) {
+                                    loadTestAdv_3(entry.target);
+                                    obs.unobserve(entry.target);
+                                    googletag.cmd.push(function () {
+                                        googletag.display('div-gpt-ad-1751661330868-0');
+                                    });
+                                }
+                            });
+                        }, {
+                            rootMargin: '5px',
                         });
-                    }, {
-                        rootMargin: '5px',
-                    });
-                    observer.observe(submitDownAdv);
-                }
+                        observer.observe(submitDownAdv);
+                    }
+
 
                 // IntersectionObserver 懒加载监控
                 const observer = new IntersectionObserver((entries, obs) => {
@@ -944,12 +959,10 @@
                             obs.unobserve(entry.target); // 只触发一次
                         }
                     });
-                }, { rootMargin: '5px' });
+                }, {rootMargin: '5px'});
 
                 // 绑定所有初始 .advtestAdv_2
                 document.querySelectorAll('.advtestAdv_2').forEach(el => observer.observe(el));
-
-
 
                 // 绑定事件
                 bindEvents();
@@ -1497,7 +1510,7 @@
                 el.innerHTML = returnTestAdv_1();
                 // 触发广告加载
                 try {
-                    //(adsbygoogle = window.adsbygoogle || []).push({});
+                    googletag.cmd.push(function() { googletag.display('top_adv_public'); });
                 } catch (e) {
                     console.error("AdSense push error", e);
                 }
@@ -1554,6 +1567,17 @@
                 // 触发广告加载
                 try {
                     googletag.cmd.push(function() { googletag.display('div-gpt-ad-1751661226505-0'); });
+                } catch (e) {
+                    console.error("AdSense push error", e);
+                }
+            }
+
+            function loadTestAdv_5(el) {
+                // 插入 <ins> HTML
+                el.innerHTML = returnTestAdv_5();
+                // 触发广告加载
+                try {
+                    googletag.cmd.push(function() { googletag.display('div-gpt-ad-1752245756693-0'); });
                 } catch (e) {
                     console.error("AdSense push error", e);
                 }
@@ -1908,22 +1932,49 @@
                 initTitle();
                 document.querySelector('.recommend').innerHTML = renderHomeDataForRQ(dataR.recommend);
 
-                document.getElementById("bot_adv_public").innerHTML = returnAdvWord();
-                const TestAdv_1Bot = document.getElementById('bot_adv_public')
-                if (TestAdv_1Bot) {
-                    const observer = new IntersectionObserver((entries, obs) => {
-                        entries.forEach(entry => {
-                            if (entry.isIntersecting) {
-                                loadTestAdv_1(entry.target);
-                                obs.unobserve(entry.target);
-                                googletag.cmd.push(function() { googletag.display('bot_adv_public'); });
-                            }
+
+                const mainPic = document.getElementById('mainPic');
+
+                if (mainPic.complete && mainPic.naturalWidth !== 0) {
+                    document.getElementById("bot_adv_public").innerHTML = returnAdvWord();
+                    const TestAdv_1Bot = document.getElementById('bot_adv_public')
+                    if (TestAdv_1Bot) {
+                        const observer = new IntersectionObserver((entries, obs) => {
+                            entries.forEach(entry => {
+                                if (entry.isIntersecting) {
+                                    loadTestAdv_1(entry.target);
+                                    obs.unobserve(entry.target);
+                                    googletag.cmd.push(function() { googletag.display('bot_adv_public'); });
+                                }
+                            });
+                        }, {
+                            rootMargin: '5px',
                         });
-                    }, {
-                        rootMargin: '5px',
-                    });
-                    observer.observe(TestAdv_1Bot);
+                        observer.observe(TestAdv_1Bot);
+                    }
+                }else{
+                    mainPic.onload = () => {
+                        document.getElementById("bot_adv_public").innerHTML = returnAdvWord();
+                        const TestAdv_1Bot = document.getElementById('bot_adv_public')
+                        if (TestAdv_1Bot) {
+                            const observer = new IntersectionObserver((entries, obs) => {
+                                entries.forEach(entry => {
+                                    if (entry.isIntersecting) {
+                                        loadTestAdv_1(entry.target);
+                                        obs.unobserve(entry.target);
+                                        googletag.cmd.push(function() { googletag.display('bot_adv_public'); });
+                                    }
+                                });
+                            }, {
+                                rootMargin: '5px',
+                            });
+                            observer.observe(TestAdv_1Bot);
+                        }
+                    }
                 }
+
+
+
             }
             // 页面加载完成后初始化
 
@@ -1948,6 +1999,46 @@
                 loadScript(rq_data_url, function () {
                     // 初始化数据
                     initHomeDataForRQ();
+
+                    const mainPic = document.getElementById('mainPic');
+
+                    if (mainPic.complete && mainPic.naturalWidth !== 0) {
+                        document.getElementById("rightTop_adv").innerHTML = returnAdvWord();
+                        const rightTop_adv = document.getElementById('rightTop_adv')
+                        if (rightTop_adv) {
+                            const observer = new IntersectionObserver((entries, obs) => {
+                                entries.forEach(entry => {
+                                    if (entry.isIntersecting) {
+                                        loadTestAdv_5(entry.target);
+                                        obs.unobserve(entry.target);
+                                        googletag.cmd.push(function() { googletag.display('div-gpt-ad-1752245756693-0'); });
+                                    }
+                                });
+                            }, {
+                                rootMargin: '5px',
+                            });
+                            observer.observe(rightTop_adv);
+                        }
+                    }else{
+                        mainPic.onload = () => {
+                            document.getElementById("rightTop_adv").innerHTML = returnAdvWord();
+                            const rightTop_adv = document.getElementById('rightTop_adv')
+                            if (rightTop_adv) {
+                                const observer = new IntersectionObserver((entries, obs) => {
+                                    entries.forEach(entry => {
+                                        if (entry.isIntersecting) {
+                                            loadTestAdv_5(entry.target);
+                                            obs.unobserve(entry.target);
+                                            googletag.cmd.push(function() { googletag.display('div-gpt-ad-1752245756693-0'); });
+                                        }
+                                    });
+                                }, {
+                                    rootMargin: '5px',
+                                });
+                                observer.observe(rightTop_adv);
+                            }
+                        }
+                    }
                 });
             });
 
@@ -2023,6 +2114,11 @@
                 observer.observe(TestAdv_1Top);
             }
         });
+
+
+
+
+
     </script>
 
     <script src="./testname/js/footJs.js"></script>

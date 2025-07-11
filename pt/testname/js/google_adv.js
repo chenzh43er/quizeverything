@@ -48,6 +48,13 @@ function returnTestAdv_4(){
 </div>`
 }
 
+function returnTestAdv_5(){
+    return `<!-- /23284785848/mqqht/loadTestAdv_4 -->
+<!-- /23284785848/mqqht/loadTestAdv_5 -->
+<div id='div-gpt-ad-1752245756693-0' style='min-width: 300px; min-height: 250px;'>
+</div>`
+}
+
 function returnResultAdv_1(){
     return ``
 }
@@ -75,5 +82,6 @@ function returnResultAdv_5(){
 <div id='div-gpt-ad-1751626033131-0' style="text-align: center">
 </div>`
 }
+
 
 

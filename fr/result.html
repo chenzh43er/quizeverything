@@ -137,7 +137,8 @@
                 .build();
 
             // 将 bot_adv_public 改为独立路径，避免冲突
-            googletag.defineSlot('/23284785848/result/loadResultAdv_1', ['fluid'] , 'top_adv_public')
+            googletag.defineSlot('/23284785848/result/loadResultAdv_1',  [[728, 90], [300, 250]] , 'top_adv_public')
+                .defineSizeMapping(mapping)
                 .addService(googletag.pubads());
 
             googletag.defineSlot('/23284785848/result/loadResultAdv_1_b', [[728, 90], [300, 250]], 'bot_adv_public') // ✅ 路径更名
@@ -1152,23 +1153,21 @@
             // 渲染首页数据
             document.querySelector('.tested').innerHTML = renderHomeData(dataM.tested);
 
-            const ResultAdv_2 = document.getElementById('ResultAdv_2')
-            if (ResultAdv_2) {
-                const observer = new IntersectionObserver((entries, obs) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            loadResultAdv_2(entry.target);
-                            obs.unobserve(entry.target);
+                const ResultAdv_2 = document.getElementById('ResultAdv_2')
+                if (ResultAdv_2) {
+                    const observer = new IntersectionObserver((entries, obs) => {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting) {
+                                loadResultAdv_2(entry.target);
+                                obs.unobserve(entry.target);
 
-                        }
+                            }
+                        });
+                    }, {
+                        rootMargin: '5px',
                     });
-                }, {
-                    rootMargin: '5px',
-                });
-                observer.observe(ResultAdv_2);
-            }
-
-
+                    observer.observe(ResultAdv_2);
+                }
         }
         // 页面加载完成后初始化
         $(document).ready(function () {
@@ -1179,22 +1178,41 @@
             }else{
                 //document.getElementById('RightBottom_adbox').innerHTML = returnZhongxiangGuding();
 
+                const mainPic = document.getElementById('resultMainPic');
 
-                const RightBottom_adbox = document.getElementById('RightBottom_adbox')
-                if (RightBottom_adbox) {
-                    const observer = new IntersectionObserver((entries, obs) => {
-                        entries.forEach(entry => {
-                            if (entry.isIntersecting) {
-                                loadResultAdv_5(entry.target);
-                                obs.unobserve(entry.target);
-                            }
+                if (mainPic.complete && mainPic.naturalWidth !== 0) {
+                    const RightBottom_adbox = document.getElementById('RightBottom_adbox')
+                    if (RightBottom_adbox) {
+                        const observer = new IntersectionObserver((entries, obs) => {
+                            entries.forEach(entry => {
+                                if (entry.isIntersecting) {
+                                    loadResultAdv_5(entry.target);
+                                    obs.unobserve(entry.target);
+                                }
+                            });
+                        }, {
+                            rootMargin: '5px',
                         });
-                    }, {
-                        rootMargin: '5px',
-                    });
-                    observer.observe(RightBottom_adbox);
+                        observer.observe(RightBottom_adbox);
+                    }
+                }else{
+                    mainPic.onload = () => {
+                        const RightBottom_adbox = document.getElementById('RightBottom_adbox')
+                        if (RightBottom_adbox) {
+                            const observer = new IntersectionObserver((entries, obs) => {
+                                entries.forEach(entry => {
+                                    if (entry.isIntersecting) {
+                                        loadResultAdv_5(entry.target);
+                                        obs.unobserve(entry.target);
+                                    }
+                                });
+                            }, {
+                                rootMargin: '5px',
+                            });
+                            observer.observe(RightBottom_adbox);
+                        }
+                    }
                 }
-
             }
 
 
@@ -1533,21 +1551,20 @@
             // 渲染首页数据
             initTitle();
             document.querySelector('.recommend').innerHTML = renderHomeDataForRQ(dataR.recommend);
-
-            const ResultAdv_4 = document.getElementById('ResultAdv_4')
-            if (ResultAdv_4) {
-                const observer = new IntersectionObserver((entries, obs) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            loadResultAdv_4(entry.target);
-                            obs.unobserve(entry.target);
-                        }
+                const ResultAdv_4 = document.getElementById('ResultAdv_4')
+                if (ResultAdv_4) {
+                    const observer = new IntersectionObserver((entries, obs) => {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting) {
+                                loadResultAdv_4(entry.target);
+                                obs.unobserve(entry.target);
+                            }
+                        });
+                    }, {
+                        rootMargin: '5px',
                     });
-                }, {
-                    rootMargin: '5px',
-                });
-                observer.observe(ResultAdv_4);
-            }
+                    observer.observe(ResultAdv_4);
+                }
         }
         // 页面加载完成后初始化
 
@@ -1850,37 +1867,77 @@
                 getResultFromUrl();
                 //console.log(2);
 
-                const ResultAdv_3 = document.getElementById('ResultAdv_3')
-                if (ResultAdv_3) {
-                    const observer = new IntersectionObserver((entries, obs) => {
-                        entries.forEach(entry => {
-                            if (entry.isIntersecting) {
-                                loadResultAdv_3(entry.target);
-                                obs.unobserve(entry.target);
-                            }
+                const mainPic = document.getElementById('resultMainPic');
+
+                if (mainPic.complete && mainPic.naturalWidth !== 0) {
+                    const ResultAdv_3 = document.getElementById('ResultAdv_3')
+                    if (ResultAdv_3) {
+                        const observer = new IntersectionObserver((entries, obs) => {
+                            entries.forEach(entry => {
+                                if (entry.isIntersecting) {
+                                    loadResultAdv_3(entry.target);
+                                    obs.unobserve(entry.target);
+                                }
+                            });
+                        }, {
+                            rootMargin: '5px',
                         });
-                    }, {
-                        rootMargin: '5px',
-                    });
-                    observer.observe(ResultAdv_3);
+                        observer.observe(ResultAdv_3);
+                    }
+
+                    document.getElementById("bot_adv_public").innerHTML = returnAdvWord();
+                    const TestAdv_1Bot = document.getElementById('bot_adv_public')
+                    if (TestAdv_1Bot) {
+                        const observer = new IntersectionObserver((entries, obs) => {
+                            entries.forEach(entry => {
+                                if (entry.isIntersecting) {
+                                    loadResultAdv_1(entry.target);
+                                    obs.unobserve(entry.target);
+                                    googletag.cmd.push(function() { googletag.display('bot_adv_public'); });
+                                }
+                            });
+                        }, {
+                            rootMargin: '5px',
+                        });
+                        observer.observe(TestAdv_1Bot);
+                    }
+                }else{
+                    mainPic.onload = () => {
+                        const ResultAdv_3 = document.getElementById('ResultAdv_3')
+                        if (ResultAdv_3) {
+                            const observer = new IntersectionObserver((entries, obs) => {
+                                entries.forEach(entry => {
+                                    if (entry.isIntersecting) {
+                                        loadResultAdv_3(entry.target);
+                                        obs.unobserve(entry.target);
+                                    }
+                                });
+                            }, {
+                                rootMargin: '5px',
+                            });
+                            observer.observe(ResultAdv_3);
+                        }
+
+                        document.getElementById("bot_adv_public").innerHTML = returnAdvWord();
+                        const TestAdv_1Bot = document.getElementById('bot_adv_public')
+                        if (TestAdv_1Bot) {
+                            const observer = new IntersectionObserver((entries, obs) => {
+                                entries.forEach(entry => {
+                                    if (entry.isIntersecting) {
+                                        loadResultAdv_1(entry.target);
+                                        obs.unobserve(entry.target);
+                                        googletag.cmd.push(function() { googletag.display('bot_adv_public'); });
+                                    }
+                                });
+                            }, {
+                                rootMargin: '5px',
+                            });
+                            observer.observe(TestAdv_1Bot);
+                        }
+                    }
                 }
 
-                document.getElementById("bot_adv_public").innerHTML = returnAdvWord();
-                const TestAdv_1Bot = document.getElementById('bot_adv_public')
-                if (TestAdv_1Bot) {
-                    const observer = new IntersectionObserver((entries, obs) => {
-                        entries.forEach(entry => {
-                            if (entry.isIntersecting) {
-                                loadResultAdv_1(entry.target);
-                                obs.unobserve(entry.target);
-                                googletag.cmd.push(function() { googletag.display('bot_adv_public'); });
-                            }
-                        });
-                    }, {
-                        rootMargin: '5px',
-                    });
-                    observer.observe(TestAdv_1Bot);
-                }
+
 
             }, 1000)
         });
@@ -1900,6 +1957,7 @@
             try {
                 // 插入 <ins> HTML
                 el.innerHTML = returnResultAdv_1();
+                googletag.cmd.push(function() { googletag.display('top_adv_public'); });
             } catch (e) {
                 console.error("AdSense push error", e);
             }
