@@ -1549,7 +1549,8 @@
         function initHomeDataForRQ() {
             // 渲染首页数据
             initTitle();
-            document.querySelector('.recommend').innerHTML = renderHomeDataForRQ(dataR.recommend);
+            setTimeout(() => {
+                document.querySelector('.recommend').innerHTML = renderHomeDataForRQ(dataR.recommend);
                 const ResultAdv_4 = document.getElementById('ResultAdv_4')
                 if (ResultAdv_4) {
                     const observer = new IntersectionObserver((entries, obs) => {
@@ -1564,6 +1565,7 @@
                     });
                     observer.observe(ResultAdv_4);
                 }
+            }, 2000);
         }
         // 页面加载完成后初始化
 
