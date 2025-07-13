@@ -1151,7 +1151,7 @@
         function initHomeDataForMo() {
             // 渲染首页数据
             document.querySelector('.tested').innerHTML = renderHomeData(dataM.tested);
-
+            setTimeout(() => {
                 const ResultAdv_2 = document.getElementById('ResultAdv_2')
                 if (ResultAdv_2) {
                     const observer = new IntersectionObserver((entries, obs) => {
@@ -1163,10 +1163,11 @@
                             }
                         });
                     }, {
-                        rootMargin: '5px',
+                        rootMargin: '5px',  // 或尝试 '-50px'，根据你的布局
                     });
                     observer.observe(ResultAdv_2);
                 }
+            }, 3000);
         }
         // 页面加载完成后初始化
         $(document).ready(function () {
