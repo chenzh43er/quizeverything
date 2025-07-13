@@ -32,6 +32,11 @@ function returnTestAdv_1(){
     return ``
 }
 
+function returnTestAdv_Bot(){
+    return `<div id='div-gpt-ad-1752424683007-0' style='min-width: 300px; min-height: 90px;'>
+                </div>`
+}
+
 function returnTestAdv_2(){
     return `<p style="text-align: center">Advertisment</p>`
 }
@@ -57,6 +62,12 @@ function returnTestAdv_5(){
 
 function returnResultAdv_1(){
     return ``
+}
+
+function returnResultAdv_1Bot(){
+    return`<!-- /23284785848/result/loadResultAdv_1_b -->
+<div id='div-gpt-ad-1752424962032-0' style='min-width: 300px; min-height: 90px;'>
+</div>`
 }
 
 function returnResultAdv_2(){
